@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "下单",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "u-popup": "/components/u-lite/u-popup"
+  }
+}
