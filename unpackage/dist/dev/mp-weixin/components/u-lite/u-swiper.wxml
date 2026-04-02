@@ -1,0 +1,1 @@
+<swiper class="u-swiper data-v-295b88ce" style="{{'height:'+($root.m0)+';'}}" autoplay="{{autoplay}}" indicator-dots="{{true}}" circular="{{true}}"><block wx:for="{{$root.l0}}" wx:for-item="item" wx:for-index="idx" wx:key="idx"><swiper-item class="data-v-295b88ce"><image class="img data-v-295b88ce" src="{{item.m1}}" mode="aspectFill"></image></swiper-item></block></swiper>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "评价",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "u-rate": "/components/u-lite/u-rate",
+    "u-upload": "/components/u-lite/u-upload"
+  }
+}

@@ -1,0 +1,12 @@
+
+.u-popup-mask.data-v-5fc793c6 { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 9999;
+}
+.u-popup.data-v-5fc793c6 { position: absolute; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); background: #fff; min-width: 70%;
+}
+.u-popup.center.data-v-5fc793c6 { top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-radius: 12rpx;
+}
+.u-popup.bottom.data-v-5fc793c6 { left: 0; right: 0; bottom: 0; -webkit-transform: none; transform: none; width: 100%; border-radius: 20rpx 20rpx 0 0;
+}
+.close.data-v-5fc793c6 { position: absolute; right: 20rpx; top: 10rpx; color: #999;
+}
+

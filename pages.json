@@ -1,0 +1,164 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "大拇指保洁到家",
+				"navigationBarBackgroundColor": "#FED12F",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#FED12F",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"subPackages": [{
+			"root": "pages/goods",
+			"pages": [{
+					"path": "goods",
+					"style": {
+						"navigationBarTitleText": "商品详情"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/order",
+			"pages": [{
+					"path": "order",
+					"style": {
+						"navigationBarTitleText": "我的订单",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/address",
+			"pages": [{
+					"path": "address",
+					"style": {
+						"navigationBarTitleText": "我的地址",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "add",
+					"style": {
+						"navigationBarTitleText": "添加新地址",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/setting",
+			"pages": [{
+					"path": "setting",
+					"style": {
+						"navigationBarTitleText": "设置",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "problem",
+					"style": {
+						"navigationBarTitleText": "常见问题",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "agreement",
+					"style": {
+						"navigationBarTitleText": "用户服务协议",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "privacy",
+					"style": {
+						"navigationBarTitleText": "隐私政策",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				}
+			]
+		},
+		{
+			"root": "pkgGoods",
+			"pages": [{
+					"path": "detail",
+					"style": {
+						"navigationBarTitleText": "详情",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "reserve",
+					"style": {
+						"navigationBarTitleText": "下单",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "service",
+					"style": {
+						"navigationBarTitleText": "客服",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"easycom": {
+		"^u-(.*)": "@/components/u-lite/u-$1.vue"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#333",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/home.png",
+				"selectedIconPath": "/static/home.png"
+			},
+			{
+				"text": "分类",
+				"pagePath": "pages/category/category",
+				"iconPath": "/static/fenlei.png",
+				"selectedIconPath": "/static/fenlei.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/mine/mine",
+				"iconPath": "/static/user.png",
+				"selectedIconPath": "/static/user.png"
+			}
+		]
+	}
+}
+
