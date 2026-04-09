@@ -156,7 +156,6 @@ export default {
 				)
 				const pageData = res?.data || {}
 				const records = Array.isArray(pageData.records) ? pageData.records : []
-<<<<<<< HEAD
 				const validRecords = records.filter(item => {
 					const shelfStatus = typeof item.status !== 'undefined' ? Number(item.status) : Number(item.statue)
 					return shelfStatus !== 0
@@ -165,12 +164,6 @@ export default {
 				target.goods = reset ? validRecords : target.goods.concat(validRecords)
 				this.pageNo = current + 1
 				this.finished = records.length < this.pageSize
-=======
-				this.total = Number(pageData.total) || 0
-				target.goods = reset ? records : target.goods.concat(records)
-				this.pageNo = current + 1
-				this.finished = target.goods.length >= this.total || records.length < this.pageSize
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 			} catch (e) {
 				if (reset) {
 					target.goods = []

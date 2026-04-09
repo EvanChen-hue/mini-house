@@ -7,26 +7,9 @@
   ],
   "subPackages": [
     {
-      "root": "pages/goods",
-      "pages": [
-<<<<<<< HEAD
-        "goods"
-=======
-        "goods",
-        "comment"
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
-      ]
-    },
-    {
       "root": "pages/order",
       "pages": [
-<<<<<<< HEAD
         "order"
-=======
-        "order",
-        "detail",
-        "comment"
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
       ]
     },
     {
@@ -40,26 +23,9 @@
       "root": "pages/setting",
       "pages": [
         "setting",
-<<<<<<< HEAD
         "problem",
         "agreement",
         "privacy"
-=======
-        "problem"
-      ]
-    },
-    {
-      "root": "pkgSearch",
-      "pages": [
-        "search"
-      ]
-    },
-    {
-      "root": "pkgTrade",
-      "pages": [
-        "payment",
-        "paymentinfo"
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
       ]
     },
     {
@@ -69,19 +35,6 @@
         "reserve",
         "service"
       ]
-<<<<<<< HEAD
-=======
-    },
-    {
-      "root": "pkgUser",
-      "pages": [
-        "balance",
-        "score",
-        "footprint",
-        "collect",
-        "info"
-      ]
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
     }
   ],
   "window": {

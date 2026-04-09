@@ -59,7 +59,7 @@
 				</view>
 				<view class="service-bottom">
 					<view class="service-bottom-item" @click="toAddress()">
-						<text>收货地址</text>
+						<text>我的地址</text>
 					</view>
 					<view class="service-bottom-item" @click="call">
 						<text>在线客服</text>

@@ -101,11 +101,7 @@ var components
 try {
   components = {
     uEmpty: function () {
-<<<<<<< HEAD
       return __webpack_require__.e(/*! import() | components/u-lite/u-empty */ "components/u-lite/u-empty").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-empty.vue */ 177))
-=======
-      return __webpack_require__.e(/*! import() | components/u-lite/u-empty */ "components/u-lite/u-empty").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-empty.vue */ 269))
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
     },
   }
 } catch (e) {
@@ -370,11 +366,7 @@ var _default = {
       var _arguments = arguments,
         _this4 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
-<<<<<<< HEAD
         var reset, target, current, params, res, pageData, records, validRecords;
-=======
-        var reset, target, current, params, res, pageData, records;
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
         return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -415,7 +407,6 @@ var _default = {
                 res = _context3.sent;
                 pageData = (res === null || res === void 0 ? void 0 : res.data) || {};
                 records = Array.isArray(pageData.records) ? pageData.records : [];
-<<<<<<< HEAD
                 validRecords = records.filter(function (item) {
                   var shelfStatus = typeof item.status !== 'undefined' ? Number(item.status) : Number(item.statue);
                   return shelfStatus !== 0;
@@ -428,16 +419,6 @@ var _default = {
                 break;
               case 23:
                 _context3.prev = 23;
-=======
-                _this4.total = Number(pageData.total) || 0;
-                target.goods = reset ? records : target.goods.concat(records);
-                _this4.pageNo = current + 1;
-                _this4.finished = target.goods.length >= _this4.total || records.length < _this4.pageSize;
-                _context3.next = 26;
-                break;
-              case 22:
-                _context3.prev = 22;
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
                 _context3.t0 = _context3["catch"](10);
                 if (reset) {
                   target.goods = [];
@@ -446,28 +427,16 @@ var _default = {
                   title: '获取分类数据失败',
                   icon: 'none'
                 });
-<<<<<<< HEAD
               case 27:
                 _context3.prev = 27;
                 _this4.loading = false;
                 return _context3.finish(27);
               case 30:
-=======
-              case 26:
-                _context3.prev = 26;
-                _this4.loading = false;
-                return _context3.finish(26);
-              case 29:
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
               case "end":
                 return _context3.stop();
             }
           }
-<<<<<<< HEAD
         }, _callee3, null, [[10, 23, 27, 30]]);
-=======
-        }, _callee3, null, [[10, 22, 26, 29]]);
->>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
       }))();
     },
     swichMenu: function swichMenu(index) {
