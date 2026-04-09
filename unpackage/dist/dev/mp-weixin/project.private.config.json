@@ -3,6 +3,7 @@
     "miniprogram": {
       "list": [
         {
+<<<<<<< HEAD
           "name": "pages/setting/agreement",
           "pathName": "pkgTrade/paymentinfo",
           "query": "",
@@ -15,6 +16,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+=======
+          "name": "pages/order/order",
+          "pathName": "pages/order/order",
+          "query": "name=%25E6%25B5%258B%25E8%25AF%2595%25E9%2598%25BF%25E5%25A7%25A8-%25E5%25B7%25B2%25E4%25BF%25AE%25E6%2594%25B9",
+          "scene": null,
+          "launchMode": "default"
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
         }
       ]
     }

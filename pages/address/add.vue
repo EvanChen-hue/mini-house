@@ -4,9 +4,15 @@
 			<form @submit="formSubmit">
 				<view class="user">
 					<view class="form-item">
+<<<<<<< HEAD
 						<view class="item-lable">我的姓名</view>
 						<view class="item-input">
 							<input name="name" v-model="form.name" placeholder="请输入我的姓名" />
+=======
+						<view class="item-lable">收件人</view>
+						<view class="item-input">
+							<input name="name" v-model="form.name" placeholder="请输入收件人姓名" />
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 						</view>
 					</view>
 					<view class="form-item">
@@ -90,7 +96,11 @@ import api from '../../utils/http.js'
 				const formdata = this.form;
 
 				if (formdata.name == '') {
+<<<<<<< HEAD
 					this.$utils.toastTip('请输入姓名');
+=======
+					this.$utils.toastTip('请输入收件人姓名');
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 					return;
 				}
 

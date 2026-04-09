@@ -41,6 +41,7 @@
   color: #666;
   line-height: 40rpx;
 }
+<<<<<<< HEAD
 .agreement-row.data-v-4586967a {
   display: flex;
   align-items: center;
@@ -66,6 +67,8 @@
   font-size: 24rpx;
   color: #40ae36;
 }
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 .wx-login-btn.data-v-4586967a {
   margin-top: 80rpx;
   border-radius: 45rpx;
@@ -73,12 +76,15 @@
   color: #fff;
   font-size: 32rpx;
 }
+<<<<<<< HEAD
 .review-link.data-v-4586967a {
   margin-top: 22rpx;
   font-size: 24rpx;
   color: #40ae36;
   text-align: center;
 }
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 .tips.data-v-4586967a {
   margin-top: 28rpx;
   font-size: 24rpx;

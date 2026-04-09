@@ -220,11 +220,15 @@ export default {
         url: '/house/worker/list',
         method: 'get'
       })
+<<<<<<< HEAD
 			const records = Array.isArray(res?.data?.records) ? res.data.records : []
 			this.list = records.filter(item => {
 				const shelfStatus = typeof item.status !== 'undefined' ? Number(item.status) : Number(item.statue)
 				return shelfStatus !== 0
 			})
+=======
+      this.list = res.data.records || []
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
     },
     randomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min

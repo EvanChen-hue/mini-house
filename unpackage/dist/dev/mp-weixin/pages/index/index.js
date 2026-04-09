@@ -404,8 +404,12 @@ var _default = {
     getData: function getData() {
       var _this4 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+<<<<<<< HEAD
         var _res$data;
         var res, records;
+=======
+        var res;
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
         return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -417,12 +421,17 @@ var _default = {
                 });
               case 2:
                 res = _context2.sent;
+<<<<<<< HEAD
                 records = Array.isArray(res === null || res === void 0 ? void 0 : (_res$data = res.data) === null || _res$data === void 0 ? void 0 : _res$data.records) ? res.data.records : [];
                 _this4.list = records.filter(function (item) {
                   var shelfStatus = typeof item.status !== 'undefined' ? Number(item.status) : Number(item.statue);
                   return shelfStatus !== 0;
                 });
               case 5:
+=======
+                _this4.list = res.data.records || [];
+              case 4:
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
               case "end":
                 return _context2.stop();
             }

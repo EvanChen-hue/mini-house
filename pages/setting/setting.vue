@@ -42,6 +42,7 @@
 				<text>常见问题</text>
 			</view>
 		</view>
+<<<<<<< HEAD
 		<view class="item" @click="toAgreement()">
 			<view class="item-left">
 				<image src="/static/one.png"></image>
@@ -69,6 +70,8 @@
 				<text>审核路径与功能点快速核对</text>
 			</view>
 		</view>
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 		<view class="btn">
 			<button>退出登录</button>
 		</view>
@@ -92,6 +95,7 @@
 				uni.navigateTo({
 					url: "/pages/setting/problem"
 				})
+<<<<<<< HEAD
 			},
 			toAgreement() {
 				uni.navigateTo({
@@ -107,6 +111,8 @@
 				uni.navigateTo({
 					url: "/pages/setting/review"
 				})
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 			}
 		}
 	}

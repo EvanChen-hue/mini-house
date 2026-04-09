@@ -36,6 +36,15 @@
 					"style": {
 						"navigationBarTitleText": "商品详情"
 					}
+<<<<<<< HEAD
+=======
+				},
+				{
+					"path": "comment",
+					"style": {
+						"navigationBarTitleText": "用户评价"
+					}
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 				}
 			]
 		},
@@ -47,6 +56,24 @@
 						"navigationBarTitleText": "我的订单",
 						"navigationBarBackgroundColor": "#FFFFFF"
 					}
+<<<<<<< HEAD
+=======
+				},
+				{
+					"path": "detail",
+					"style": {
+						"navigationBarTitleText": "订单详情",
+						"navigationBarBackgroundColor": "#40AE36",
+						"navigationBarTextStyle": "white"
+					}
+				},
+				{
+					"path": "comment",
+					"style": {
+						"navigationBarTitleText": "评价",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 				}
 			]
 		},
@@ -83,18 +110,46 @@
 						"navigationBarTitleText": "常见问题",
 						"navigationBarBackgroundColor": "#FFFFFF"
 					}
+<<<<<<< HEAD
 				},
 				{
 					"path": "agreement",
 					"style": {
 						"navigationBarTitleText": "用户服务协议",
+=======
+				}
+			]
+		},
+		{
+			"root": "pkgSearch",
+			"pages": [{
+				"path": "search",
+				"style": {
+					"navigationBarTitleText": "搜索",
+					"navigationBarBackgroundColor": "#F8F9FA"
+				}
+			}]
+		},
+		{
+			"root": "pkgTrade",
+			"pages": [{
+					"path": "payment",
+					"style": {
+						"navigationBarTitleText": "确认订单",
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 						"navigationBarBackgroundColor": "#FFFFFF"
 					}
 				},
 				{
+<<<<<<< HEAD
 					"path": "privacy",
 					"style": {
 						"navigationBarTitleText": "隐私政策",
+=======
+					"path": "paymentinfo",
+					"style": {
+						"navigationBarTitleText": "付款",
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 						"navigationBarBackgroundColor": "#FFFFFF"
 					}
 				}
@@ -124,6 +179,48 @@
 					}
 				}
 			]
+<<<<<<< HEAD
+=======
+		},
+		{
+			"root": "pkgUser",
+			"pages": [{
+					"path": "balance",
+					"style": {
+						"navigationBarTitleText": "余额明细",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "score",
+					"style": {
+						"navigationBarTitleText": "积分明细",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "footprint",
+					"style": {
+						"navigationBarTitleText": "足迹",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "collect",
+					"style": {
+						"navigationBarTitleText": "收藏",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				},
+				{
+					"path": "info",
+					"style": {
+						"navigationBarTitleText": "个人信息",
+						"navigationBarBackgroundColor": "#FFFFFF"
+					}
+				}
+			]
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 		}
 	],
 	"globalStyle": {

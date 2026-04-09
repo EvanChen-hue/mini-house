@@ -1,5 +1,6 @@
 ﻿<template>
 	<view class="container">
+<<<<<<< HEAD
 		<view class="title">手机号一键登录</view>
 
 		<view class="agreement-row" @click="toggleAgreement">
@@ -24,6 +25,20 @@
 		<!-- <view class="tips">
 			<text>login code：{{ lastCode || '未获取' }}</text>
 		</view> -->
+=======
+		<view class="title">微信授权登录</view>
+		<view class="desc">
+			点击下方按钮授权手机号，系统会获取微信登录 code + 手机号 code 发送给后端换取真实手机号与登录态。
+		</view>
+
+		<button class="wx-login-btn" :loading="loading" @click="wxQuickLogin">
+			{{ loading ? '登录中...' : '微信手机号一键登录' }}
+		</button>
+
+		<view class="tips">
+			<text>login code：{{ lastCode || '未获取' }}</text>
+		</view>
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 	</view>
 </template>
 
@@ -34,6 +49,7 @@ export default {
 	data() {
 		return {
 			loading: false,
+<<<<<<< HEAD
 			lastCode: '',
 			agreed: false
 		}
@@ -79,15 +95,27 @@ export default {
 			await this.wxQuickLogin(phoneCode)
 		},
 		async wxQuickLogin(phoneCode = '') {
+=======
+			lastCode: ''
+		}
+	},
+	methods: {
+		async wxQuickLogin() {
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 			if (this.loading) return
 			this.loading = true
 
 			try {
+<<<<<<< HEAD
+=======
+				const userInfo = await this.getWxUserProfile()
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 				const code = await this.getWxCode()
 				this.lastCode = code
 
 				const loginRes = await this.callLoginApi({
 					code,
+<<<<<<< HEAD
 					phoneCode,
 					agreePolicy: this.agreed ? 1 : 0
 				})
@@ -99,6 +127,19 @@ export default {
 
 				uni.setStorageSync('Token', token)
 				uni.setStorageSync('userInfo', loginRes?.data?.userInfo || {})
+=======
+				})
+
+				const token = loginRes?.data || ''
+				if (!token) {
+					throw new Error('后端未返回 token')
+				}
+				console.log(userInfo, 'usefr');
+				
+
+				uni.setStorageSync('Token', token)
+				uni.setStorageSync('userInfo', loginRes?.data?.userInfo || userInfo || {})
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 
 				uni.showToast({
 					title: '登录成功',
@@ -112,13 +153,29 @@ export default {
 				}, 300)
 			} catch (e) {
 				uni.showToast({
+<<<<<<< HEAD
 					title: e?.message || e?.msg || '登录失败，请稍后再试',
+=======
+					title: e?.message || '登录失败',
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 					icon: 'none'
 				})
 			} finally {
 				this.loading = false
 			}
 		},
+<<<<<<< HEAD
+=======
+		getWxUserProfile() {
+			return new Promise((resolve, reject) => {
+				uni.getUserProfile({
+					desc: '用于完善会员资料',
+					success: res => resolve(res.userInfo || {}),
+					fail: err => reject(err)
+				})
+			})
+		},
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 		getWxCode() {
 			return new Promise((resolve, reject) => {
 				uni.login({
@@ -170,6 +227,7 @@ export default {
 	line-height: 40rpx;
 }
 
+<<<<<<< HEAD
 .agreement-row {
 	display: flex;
 	align-items: center;
@@ -200,6 +258,8 @@ export default {
 	}
 }
 
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 .wx-login-btn {
 	margin-top: 80rpx;
 	border-radius: 45rpx;
@@ -208,6 +268,7 @@ export default {
 	font-size: 32rpx;
 }
 
+<<<<<<< HEAD
 .review-link {
 	margin-top: 22rpx;
 	font-size: 24rpx;
@@ -215,6 +276,8 @@ export default {
 	text-align: center;
 }
 
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 .tips {
 	margin-top: 28rpx;
 	font-size: 24rpx;

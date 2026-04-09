@@ -103,6 +103,7 @@ var components
 try {
   components = {
     uSwiper: function () {
+<<<<<<< HEAD
       return __webpack_require__.e(/*! import() | components/u-lite/u-swiper */ "components/u-lite/u-swiper").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-swiper.vue */ 184))
     },
     uPopup: function () {
@@ -125,6 +126,30 @@ try {
     },
     uTd: function () {
       return __webpack_require__.e(/*! import() | components/u-lite/u-td */ "components/u-lite/u-td").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-td.vue */ 233))
+=======
+      return __webpack_require__.e(/*! import() | components/u-lite/u-swiper */ "components/u-lite/u-swiper").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-swiper.vue */ 276))
+    },
+    uPopup: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-popup */ "components/u-lite/u-popup").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-popup.vue */ 283))
+    },
+    uNumberBox: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-number-box */ "components/u-lite/u-number-box").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-number-box.vue */ 290))
+    },
+    uRate: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-rate */ "components/u-lite/u-rate").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-rate.vue */ 297))
+    },
+    uTable: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-table */ "components/u-lite/u-table").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-table.vue */ 304))
+    },
+    uTr: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-tr */ "components/u-lite/u-tr").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-tr.vue */ 311))
+    },
+    uTh: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-th */ "components/u-lite/u-th").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-th.vue */ 318))
+    },
+    uTd: function () {
+      return __webpack_require__.e(/*! import() | components/u-lite/u-td */ "components/u-lite/u-td").then(__webpack_require__.bind(null, /*! @/components/u-lite/u-td.vue */ 325))
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
     },
   }
 } catch (e) {

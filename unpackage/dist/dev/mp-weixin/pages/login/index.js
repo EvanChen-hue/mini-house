@@ -162,6 +162,7 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../utils/http.js *
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -174,10 +175,13 @@ var _http = _interopRequireDefault(__webpack_require__(/*! ../../utils/http.js *
 //
 //
 //
+=======
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
 var _default = {
   data: function data() {
     return {
       loading: false,
+<<<<<<< HEAD
       lastCode: '',
       agreed: false
     };
@@ -206,10 +210,21 @@ var _default = {
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
         var _e$detail, _e$detail2;
         var errMsg, phoneCode;
+=======
+      lastCode: ''
+    };
+  },
+  methods: {
+    wxQuickLogin: function wxQuickLogin() {
+      var _this = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var _loginRes$data, userInfo, code, loginRes, token;
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+<<<<<<< HEAD
                 if (_this.agreed) {
                   _context.next = 3;
                   break;
@@ -282,6 +297,41 @@ var _default = {
               case 15:
                 uni.setStorageSync('Token', token);
                 uni.setStorageSync('userInfo', (loginRes === null || loginRes === void 0 ? void 0 : (_loginRes$data2 = loginRes.data) === null || _loginRes$data2 === void 0 ? void 0 : _loginRes$data2.userInfo) || {});
+=======
+                if (!_this.loading) {
+                  _context.next = 2;
+                  break;
+                }
+                return _context.abrupt("return");
+              case 2:
+                _this.loading = true;
+                _context.prev = 3;
+                _context.next = 6;
+                return _this.getWxUserProfile();
+              case 6:
+                userInfo = _context.sent;
+                _context.next = 9;
+                return _this.getWxCode();
+              case 9:
+                code = _context.sent;
+                _this.lastCode = code;
+                _context.next = 13;
+                return _this.callLoginApi({
+                  code: code
+                });
+              case 13:
+                loginRes = _context.sent;
+                token = (loginRes === null || loginRes === void 0 ? void 0 : loginRes.data) || '';
+                if (token) {
+                  _context.next = 17;
+                  break;
+                }
+                throw new Error('后端未返回 token');
+              case 17:
+                console.log(userInfo, 'usefr');
+                uni.setStorageSync('Token', token);
+                uni.setStorageSync('userInfo', (loginRes === null || loginRes === void 0 ? void 0 : (_loginRes$data = loginRes.data) === null || _loginRes$data === void 0 ? void 0 : _loginRes$data.userInfo) || userInfo || {});
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
                 uni.showToast({
                   title: '登录成功',
                   icon: 'success'
@@ -291,6 +341,7 @@ var _default = {
                     url: '/pages/mine/mine'
                   });
                 }, 300);
+<<<<<<< HEAD
                 _context2.next = 24;
                 break;
               case 21:
@@ -312,6 +363,42 @@ var _default = {
         }, _callee2, null, [[4, 21, 24, 27]]);
       }))();
     },
+=======
+                _context.next = 27;
+                break;
+              case 24:
+                _context.prev = 24;
+                _context.t0 = _context["catch"](3);
+                uni.showToast({
+                  title: (_context.t0 === null || _context.t0 === void 0 ? void 0 : _context.t0.message) || '登录失败',
+                  icon: 'none'
+                });
+              case 27:
+                _context.prev = 27;
+                _this.loading = false;
+                return _context.finish(27);
+              case 30:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 24, 27, 30]]);
+      }))();
+    },
+    getWxUserProfile: function getWxUserProfile() {
+      return new Promise(function (resolve, reject) {
+        uni.getUserProfile({
+          desc: '用于完善会员资料',
+          success: function success(res) {
+            return resolve(res.userInfo || {});
+          },
+          fail: function fail(err) {
+            return reject(err);
+          }
+        });
+      });
+    },
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
     getWxCode: function getWxCode() {
       return new Promise(function (resolve, reject) {
         uni.login({
@@ -330,17 +417,27 @@ var _default = {
       });
     },
     callLoginApi: function callLoginApi(payload) {
+<<<<<<< HEAD
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
         return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
+=======
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
                 return _http.default.createRequest({
                   url: '/house/user/wx/login',
                   method: 'post'
                 }, payload, true, 'application/x-www-form-urlencoded');
               case 2:
+<<<<<<< HEAD
                 return _context3.abrupt("return", _context3.sent);
               case 3:
               case "end":
@@ -348,6 +445,15 @@ var _default = {
             }
           }
         }, _callee3);
+=======
+                return _context2.abrupt("return", _context2.sent);
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+>>>>>>> 3adfa6b8ae169024cf18cd11a3e1a9ebbc8aa859
       }))();
     }
   }
