@@ -1,0 +1,1 @@
+<view class="page data-v-723e8e1e"><view class="card data-v-723e8e1e"><view class="title data-v-723e8e1e">在线客服</view><view class="desc data-v-723e8e1e">如需帮助可点击下方按钮联系客服。</view><button data-event-opts="{{[['tap',[['callService',['$event']]]]]}}" class="call-btn data-v-723e8e1e" bindtap="__e">拨打客服电话</button></view></view>

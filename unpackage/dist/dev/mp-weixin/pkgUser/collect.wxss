@@ -1,0 +1,114 @@
+
+page {
+	background: #F8F9FA;
+}
+
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* uView 兼容变量（精简保留） */
+/* uni.scss */
+.container.data-v-3d885e98 {
+  margin: 30rpx;
+}
+.item.data-v-3d885e98 {
+  padding-bottom: 60rpx;
+}
+.item .item-lable.data-v-3d885e98 {
+  font-size: 28rpx;
+  color: #666666;
+}
+.item .goods.data-v-3d885e98 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.item .goods .goods-item.data-v-3d885e98 {
+  border-radius: 20rpx;
+  background: #FFFFFF;
+  padding: 0rpx 30rpx 30rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+.item .goods .goods-image.data-v-3d885e98 {
+  width: 280rpx;
+  height: 280rpx;
+  border-radius: 4px;
+}
+.item .goods .goods-title.data-v-3d885e98 {
+  width: 274rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+  line-height: 34rpx;
+  color: #333333;
+  margin-top: 10rpx;
+}
+.item .goods .goods-tag.data-v-3d885e98 {
+  display: flex;
+  align-items: center;
+  margin-top: 14rpx;
+}
+.item .goods .goods-tag-owner.data-v-3d885e98 {
+  color: #F55726;
+  font-size: 18rpx;
+  border: 1px solid #F55726;
+  border-radius: 4rpx;
+  padding: 2rpx 10rpx;
+  line-height: 22rpx;
+}
+.item .goods .goods-tag-text.data-v-3d885e98 {
+  color: #40AE36;
+  font-size: 18rpx;
+  border: 1px solid #40AE36;
+  border-radius: 4rpx;
+  margin-left: 10rpx;
+  padding: 2rpx 10rpx;
+  line-height: 22rpx;
+}
+.item .goods .goods-price.data-v-3d885e98 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14rpx;
+}
+.item .goods .goods-price .goods-price-txt.data-v-3d885e98 {
+  color: #F55726;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.item .goods .goods-price .goods-price-txt .goods-price-unit.data-v-3d885e98 {
+  font-size: 22rpx;
+  color: #999999;
+  font-weight: normal;
+}
+.item .goods .goods-price .goods-shopcar-icon.data-v-3d885e98 {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+.empty.data-v-3d885e98 {
+  margin-top: 200rpx;
+}
+

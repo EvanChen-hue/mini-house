@@ -1,0 +1,1 @@
+<view class="u-upload data-v-0197fc52"><block wx:for="{{fileList}}" wx:for-item="f" wx:for-index="i" wx:key="i"><image class="img data-v-0197fc52" src="{{f.url||'/static/one.png'}}" mode="aspectFill"></image></block></view>

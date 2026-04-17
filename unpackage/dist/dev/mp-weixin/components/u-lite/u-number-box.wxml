@@ -1,0 +1,1 @@
+<view class="u-number-box data-v-a6c059c6"><button class="btn data-v-a6c059c6" size="mini" data-event-opts="{{[['tap',[['change',[-step]]]]]}}" bindtap="__e">-</button><text class="num data-v-a6c059c6">{{innerValue}}</text><button class="btn data-v-a6c059c6" size="mini" data-event-opts="{{[['tap',[['change',['$0'],['step']]]]]}}" bindtap="__e">+</button></view>
