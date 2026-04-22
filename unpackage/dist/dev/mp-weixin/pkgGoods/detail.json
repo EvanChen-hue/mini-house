@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "详情",
+  "navigationBarBackgroundColor": "#FFF2D4",
+  "usingComponents": {
+    "u-popup": "/components/u-lite/u-popup",
+    "u-number-box": "/components/u-lite/u-number-box"
+  }
+}

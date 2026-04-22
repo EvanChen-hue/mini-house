@@ -1,0 +1,206 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				 "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#FFF2D4",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "pages/order",
+			"pages": [{
+					"path": "order",
+					"style": {
+						"navigationBarTitleText": "我的订单",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/address",
+			"pages": [{
+					"path": "address",
+					"style": {
+						"navigationBarTitleText": "我的地址",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "add",
+					"style": {
+						"navigationBarTitleText": "添加新地址",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				}
+			]
+		},
+		{
+			"root": "pages/setting",
+			"pages": [{
+					"path": "setting",
+					"style": {
+						"navigationBarTitleText": "设置",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "problem",
+					"style": {
+						"navigationBarTitleText": "常见问题",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "agreement",
+					"style": {
+						"navigationBarTitleText": "用户服务协议",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "privacy",
+					"style": {
+						"navigationBarTitleText": "隐私政策",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				}
+			]
+		},
+		{
+			"root": "pkgGoods",
+			"pages": [{
+					"path": "detail",
+					"style": {
+						"navigationBarTitleText": "详情",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "review",
+					"style": {
+						"navigationBarTitleText": "用户评价",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "reserve",
+					"style": {
+						"navigationBarTitleText": "下单",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "service",
+					"style": {
+						"navigationBarTitleText": "客服",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				}
+			]
+		},
+		{
+			"root": "pkgUser",
+			"pages": [{
+					"path": "balance",
+					"style": {
+						"navigationBarTitleText": "余额",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "collect",
+					"style": {
+						"navigationBarTitleText": "我的收藏",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "footprint",
+					"style": {
+						"navigationBarTitleText": "足迹",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "info",
+					"style": {
+						"navigationBarTitleText": "个人信息",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "score",
+					"style": {
+						"navigationBarTitleText": "积分",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
+					"path": "update",
+					"style": {
+						"navigationBarTitleText": "个人设置",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				}
+			]
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFF2D4",
+		"backgroundColor": "#FFFFFF"
+	},
+	"uniIdRouter": {},
+	"easycom": {
+		"^u-(.*)": "@/components/u-lite/u-$1.vue"
+	},
+	"tabBar": {
+		"color": "#8F7A56",
+		"selectedColor": "#D88A2D",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/index/index",
+				"iconPath": "/static/home.png",
+				"selectedIconPath": "/static/home.png"
+			},
+			{
+				"text": "分类",
+				"pagePath": "pages/category/category",
+				"iconPath": "/static/fenlei.png",
+				"selectedIconPath": "/static/fenlei.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/mine/mine",
+				"iconPath": "/static/user.png",
+				"selectedIconPath": "/static/user.png"
+			}
+		]
+	}
+}
+
