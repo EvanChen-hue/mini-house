@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "余额明细",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "u-empty": "/components/u-lite/u-empty"
-  }
-}

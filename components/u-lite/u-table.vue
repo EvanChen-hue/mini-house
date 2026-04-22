@@ -1,3 +1,0 @@
-﻿<template><view class="u-table"><slot></slot></view></template>
-<script>export default { name: 'ULiteTable' }</script>
-<style scoped>.u-table{width:100%;border:1rpx solid #eee;border-radius:8rpx;overflow:hidden;}</style>

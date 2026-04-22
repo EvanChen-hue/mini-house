@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "收藏",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "u-empty": "/components/u-lite/u-empty"
-  }
-}

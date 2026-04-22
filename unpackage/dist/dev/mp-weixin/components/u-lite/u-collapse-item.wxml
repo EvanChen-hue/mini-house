@@ -1,1 +1,0 @@
-<view class="u-collapse-item data-v-0698a2cd"><view data-event-opts="{{[['tap',[['e0',['$event']]]]]}}" class="head data-v-0698a2cd" bindtap="__e">{{title}}</view><block wx:if="{{open}}"><view class="body data-v-0698a2cd"><slot></slot></view></block></view>

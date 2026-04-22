@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "用户评价",
-  "usingComponents": {
-    "u-rate": "/components/u-lite/u-rate"
-  }
-}
