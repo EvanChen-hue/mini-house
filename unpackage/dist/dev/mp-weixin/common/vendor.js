@@ -11845,9 +11845,9 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 /* 30 */
-/*!*******************************************************************!*\
-  !*** C:/Users/Sun/Documents/HBuilderProjects/生鲜商城前端模板/pages.json ***!
-  \*******************************************************************/
+/*!***********************************************************!*\
+  !*** C:/Users/Sun/Documents/GitHub/mini-house/pages.json ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -11991,9 +11991,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 37 */
-/*!*********************************************************************************!*\
-  !*** C:/Users/Sun/Documents/HBuilderProjects/生鲜商城前端模板/uni.promisify.adaptor.js ***!
-  \*********************************************************************************/
+/*!*************************************************************************!*\
+  !*** C:/Users/Sun/Documents/GitHub/mini-house/uni.promisify.adaptor.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12018,9 +12018,9 @@ uni.addInterceptor({
 
 /***/ }),
 /* 38 */
-/*!***********************************************************************!*\
-  !*** C:/Users/Sun/Documents/HBuilderProjects/生鲜商城前端模板/utils/utils.js ***!
-  \***********************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/Sun/Documents/GitHub/mini-house/utils/utils.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12533,9 +12533,9 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 /* 48 */
-/*!**********************************************************************!*\
-  !*** C:/Users/Sun/Documents/HBuilderProjects/生鲜商城前端模板/utils/http.js ***!
-  \**********************************************************************/
+/*!**************************************************************!*\
+  !*** C:/Users/Sun/Documents/GitHub/mini-house/utils/http.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
