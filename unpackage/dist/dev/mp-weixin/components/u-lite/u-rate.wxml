@@ -1,0 +1,1 @@
+<view class="u-rate data-v-783810b6"><block wx:for="{{count}}" wx:for-item="i" wx:for-index="__i0__" wx:key="*this"><text data-event-opts="{{[['tap',[['onTap',['$0'],[[['count','',__i0__]]]]]]]}}" class="star data-v-783810b6" style="{{'color:'+(i<=innerValue?activeColor:inactiveColor)+';'+('font-size:'+($root.m0)+';')}}" bindtap="__e">★</text></block></view>

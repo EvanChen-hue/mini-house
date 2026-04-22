@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "我的",
+<<<<<<< HEAD
+  "navigationBarBackgroundColor": "#F3EBFF",
+=======
+  "navigationBarBackgroundColor": "#FED12F",
+>>>>>>> b82c8976e75deb4638d7c2d0dbfdc908a3704f8d
+  "navigationBarTextStyle": "black",
+  "usingComponents": {}
+}

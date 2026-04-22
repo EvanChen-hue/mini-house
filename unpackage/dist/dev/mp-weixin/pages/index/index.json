@@ -1,0 +1,10 @@
+{
+<<<<<<< HEAD
+  "navigationStyle": "custom",
+=======
+  "navigationBarTitleText": "大拇指保洁到家",
+  "navigationBarBackgroundColor": "#FED12F",
+  "navigationBarTextStyle": "black",
+>>>>>>> b82c8976e75deb4638d7c2d0dbfdc908a3704f8d
+  "usingComponents": {}
+}
