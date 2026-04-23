@@ -66,38 +66,48 @@ export default {
 				return
 			}
 
+			const detail = e?.detail || {}
+			const phoneCode = detail.code || ''
 			const errMsg = e?.detail?.errMsg || ''
 			if (!errMsg.includes(':ok')) {
+				const noQuota = Number(detail.errno) === 1400001
 				uni.showToast({
-					title: '未授权手机号，无法登录',
+					title: noQuota ? '手机号验证额度不足' : '未授权手机号，无法登录',
 					icon: 'none'
 				})
 				return
 			}
 
-			const phoneCode = e?.detail?.code || ''
-			await this.wxQuickLogin(phoneCode)
+			if (!phoneCode) {
+				uni.showToast({
+					title: '当前环境未返回手机号 code，请用真机调试',
+					icon: 'none'
+				})
+				return
+			}
+
+			try {
+				await this.ensureLoginToken()
+				await this.wxQuickLogin(phoneCode)
+			} catch (e) {
+				uni.showToast({
+					title: e?.message || e?.msg || '登录失败，请稍后再试',
+					icon: 'none'
+				})
+			}
 		},
 		async wxQuickLogin(phoneCode = '') {
 			if (this.loading) return
 			this.loading = true
 
 			try {
-				const code = await this.getWxCode()
-				this.lastCode = code
+				const loginRes = await this.callBindPhoneApi(phoneCode)
+				const userInfo = loginRes?.data
+				if (!userInfo || !userInfo.id) {
+					throw new Error('后端未返回用户信息')
+				}
 
-				const loginRes = await this.callLoginApi({
-					code,
-					phoneCode,
-					agreePolicy: this.agreed ? 1 : 0
-				})
-
-			const userInfo = loginRes?.data
-			if (!userInfo || !userInfo.id) {
-				throw new Error('后端未返回用户信息')
-			}
-
-			uni.setStorageSync('userInfo', userInfo)
+				uni.setStorageSync('userInfo', userInfo)
 				setTimeout(() => {
 					uni.switchTab({
 						url: '/pages/mine/mine'
@@ -111,6 +121,20 @@ export default {
 			} finally {
 				this.loading = false
 			}
+		},
+		async ensureLoginToken() {
+			uni.removeStorageSync('Token')
+			const code = await this.getWxCode()
+			this.lastCode = code
+
+			const loginRes = await this.callWxLoginApi(code)
+			const token = loginRes?.data || ''
+			if (!token) {
+				throw new Error(loginRes?.msg || '后端未返回 Token')
+			}
+
+			uni.setStorageSync('Token', token)
+			return token
 		},
 		getWxCode() {
 			return new Promise((resolve, reject) => {
@@ -127,15 +151,29 @@ export default {
 				})
 			})
 		},
-		async callLoginApi(payload) {
-			// 你后续替换成自己的后端地址即可
-			// 后端可使用 payload.code 换取 openid/session_key，并保存昵称头像
-			let token = uni.getStorageSync('Token') || '';
+		async callWxLoginApi(code) {
+			if (!code) {
+				throw new Error('登录 code 为空')
+			}
+
+			return await api.createRequest({
+				url: '/house/user/wx/login',
+				method: 'post'
+			}, {
+				code
+			}, true, 'application/x-www-form-urlencoded')
+		},
+		async callBindPhoneApi(phoneCode) {
+			const token = uni.getStorageSync('Token') || ''
+			if (!token) {
+				throw new Error('Token 不存在，请重新登录')
+			}
+
 			return await api.createRequest({
 				url: '/house/user/wx/bindPhone',
 				method: 'post',
 				token
-			}, {code: payload.phoneCode});
+			}, { code: phoneCode })
 		}
 	}
 }

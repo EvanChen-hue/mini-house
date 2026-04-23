@@ -68,6 +68,7 @@
 
 <script>
 import api from '../../utils/http.js'
+import utils from '../../utils/utils.js'
 
 export default {
 	data() {
@@ -225,9 +226,7 @@ export default {
 			})
 		},
 		formatPackageImage(url) {
-			if (!url) return '/static/banner.png'
-			if (String(url).indexOf('http') === 0) return url
-			return `${api.baseUrl}//house/uploads/${url}`
+			return utils.resolveImageUrl(url, '/static/banner.png')
 		},
 		buildDetailCache(item) {
 			const data = item || {}

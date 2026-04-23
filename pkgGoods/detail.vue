@@ -110,6 +110,7 @@
 
 <script>
 import api from '../utils/http.js'
+import utils from '../utils/utils.js'
 
 export default {
 	data() {
@@ -170,26 +171,24 @@ export default {
 	},
 	methods: {
 		initGoods(options) {
-			const cache = uni.getStorageSync('package_detail_cache') || {}
-			if (cache && cache.id) {
-				this.goods = cache
-				return
-			}
-
 			try {
 				const parsed = JSON.parse(decodeURIComponent(options.goods || '{}'))
 				this.goods = parsed && parsed.id ? parsed : {}
 				if (this.goods.id) {
 					uni.setStorageSync('package_detail_cache', this.goods)
+					return
 				}
 			} catch (e) {
 				this.goods = {}
 			}
+
+			const cache = uni.getStorageSync('package_detail_cache') || {}
+			if (cache && cache.id) {
+				this.goods = cache
+			}
 		},
 		formatImage(url, fallback = '/static/banner.png') {
-			if (!url) return fallback
-			if (String(url).indexOf('http') === 0) return url
-			return `${api.baseUrl}${url}`
+			return utils.resolveImageUrl(url, fallback)
 		},
 		normalizeName(name) {
 			const str = String(name || '').trim()

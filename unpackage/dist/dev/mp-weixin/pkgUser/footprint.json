@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "足迹",
-  "navigationBarBackgroundColor": "#FFF2D4",
-  "usingComponents": {
-    "u-empty": "/components/u-lite/u-empty"
-  }
-}

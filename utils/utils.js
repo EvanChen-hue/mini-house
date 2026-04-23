@@ -1,4 +1,54 @@
+import api from './http.js'
+
+const normalizeBaseUrl = (url) => String(url || '').replace(/\/+$/, '')
+
+const unwrapQuotedValue = (value) => {
+	let nextValue = String(value || '').trim()
+	while (nextValue.length >= 2) {
+		const firstChar = nextValue.charAt(0)
+		const lastChar = nextValue.charAt(nextValue.length - 1)
+		const wrappedByDoubleQuotes = firstChar === '"' && lastChar === '"'
+		const wrappedBySingleQuotes = firstChar === '\'' && lastChar === '\''
+		if (!wrappedByDoubleQuotes && !wrappedBySingleQuotes) {
+			break
+		}
+		nextValue = nextValue.slice(1, -1).trim()
+	}
+	return nextValue
+}
+
 export default {
+	resolveImageUrl(url, fallback = '/static/banner.png') {
+		const rawValue = Array.isArray(url) ? url[0] : String(url || '').split(',')[0]
+		const value = unwrapQuotedValue(rawValue).replace(/\\/g, '/').trim()
+		if (!value) return fallback
+		if (/^https?:\/\//i.test(value)) return value
+
+		const baseUrl = normalizeBaseUrl(api.baseUrl)
+		if (!baseUrl) return value
+
+		if (value.indexOf('/house/uploads/') === 0) {
+			return `${baseUrl}${value}`
+		}
+
+		if (value.indexOf('/uploads/') === 0) {
+			return `${baseUrl}${value}`
+		}
+
+		if (value.indexOf('house/uploads/') === 0) {
+			return `${baseUrl}/${value}`
+		}
+
+		if (value.indexOf('uploads/') === 0) {
+			return `${baseUrl}/${value}`
+		}
+
+		if (value[0] === '/') {
+			return `${baseUrl}${value}`
+		}
+
+		return `${baseUrl}/house/uploads/${value}`
+	},
 	// toast提示框
 	// 标题，图标，存在时间
 	toastTip(title, icon, time) {

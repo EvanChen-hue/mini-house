@@ -5,9 +5,10 @@
 			<view class="user-top">
 				<view class="user-top-left" @click="handleProfileClick()">
 					<image :src="displayAvatar"></image>
-					<view class="user-info">
+					<view class="user-info" :class="isLoggedIn ? 'user-info-logged' : 'user-info-guest'">
 						<text class="nickname">{{ displayName }}</text>
 						<text class="phone">{{ displayPhone }}</text>
+						<text v-if="!isLoggedIn" class="login-hint">点击登录后查看完整信息</text>
 					</view>
 				</view>
 				<view class="user-top-right">
@@ -72,10 +73,12 @@
 
 <script>
 	import api from '../../utils/http.js'
+	import utils from '../../utils/utils.js'
 
 	export default {
 		data() {
 			return {
+				isLoggedIn: false,
 				userInfo: {
 					id: '',
 					username: '微信用户',
@@ -85,24 +88,30 @@
 				list: []
 			};
 		},
+		onLoad() {
+			this.syncAuthState()
+		},
 		onShow() {
-			// this.ensureLogin();
+			this.syncAuthState()
 			this.fetchUserInfo();
 		},
 		computed: {
 			displayAvatar() {
-				if (!this.userInfo.avatar) return '/static/user.png';
-				if (this.userInfo.avatar.indexOf('http') === 0) return this.userInfo.avatar;
-				return `${api.baseUrl}${this.userInfo.avatar}`;
+				return utils.resolveImageUrl(this.userInfo.avatar, '/static/user.png');
 			},
 			displayName() {
+				if (!this.isLoggedIn) return '立即登录';
 				return this.userInfo.username || '微信用户';
 			},
 			displayPhone() {
+				if (!this.isLoggedIn) return '未登录';
 				return this.userInfo.phone || '未绑定手机号';
 			}
 		},
 		methods: {
+			syncAuthState() {
+				this.isLoggedIn = this.hasToken()
+			},
 			call() {
 				uni.makePhoneCall({ phoneNumber: '0817-6125226' })
 			},
@@ -117,11 +126,23 @@
 				return false;
 			},
 			async fetchUserInfo() {
+				this.syncAuthState()
+				if (!this.hasToken()) {
+					this.userInfo = {
+						id: '',
+						username: '',
+						phone: '',
+						avatar: ''
+					}
+					return
+				}
+
 				const cache = uni.getStorageSync('userInfo') || {};
 				this.userInfo = {
 					...this.userInfo,
 					...cache
 				};
+				this.syncAuthState()
 
 				const token = uni.getStorageSync('Token') || '';
 				if (!token) return;
@@ -129,6 +150,7 @@
 				try {
 					const res = await api.httpTokenRequest('/house/user/wx/me', {}, 'get');
 					this.userInfo = res?.data || {};
+					this.syncAuthState()
 					uni.setStorageSync('userInfo', this.userInfo);	
 				} catch (e) {
 					uni.showToast({
@@ -214,17 +236,44 @@
 				display: flex;
 				flex-direction: column;
 				margin-left: 30rpx;
+				gap: 8rpx;
 
 				.nickname {
 					font-size: 32rpx;
-					color: #FFFFFF;
+					color: #111111;
+					font-weight: 700;
 				}
 
 				.phone {
 					font-size: 24rpx;
-					color: #FFFFFF;
+					color: #2f2f2f;
 					margin-top: 6rpx;
-					opacity: 0.8;
+				}
+
+				.login-hint {
+					font-size: 22rpx;
+					color: #7a5200;
+					background: rgba(17, 17, 17, 0.08);
+					border-radius: 999rpx;
+					padding: 8rpx 18rpx;
+					margin-top: 8rpx;
+				}
+			}
+
+			.user-info-guest {
+				.nickname {
+					font-size: 38rpx;
+				}
+
+				.phone {
+					font-size: 26rpx;
+					color: #5a5a5a;
+				}
+			}
+
+			.user-info-logged {
+				.phone {
+					color: #3f3f3f;
 				}
 			}
 		}
