@@ -273,12 +273,14 @@ export default {
 		},
 		goReserve() {
 			const name = encodeURIComponent(this.goods.name || '')
-			const workerId = Number(this.goods.id || 0)
+			const packageId = Number(this.goods.id || 0)
 			const categoryId = Number(this.goods.categoryId || uni.getStorageSync('category_tab_id') || 1)
 			const specId = Number(this.selectedSpecId || 0)
-			const count = Number(this.quantity || 1)
+			const quantity = Number(this.quantity || 1)
+			const specName = encodeURIComponent(this.selectedSpecText || '')
+			const unitPrice = Number(this.selectedSpecPrice || this.goods.price || 0)
 			uni.navigateTo({
-				url: `/pkgGoods/reserve?name=${name}&workerId=${workerId}&categoryId=${categoryId}&specId=${specId}&count=${count}`
+				url: `/pkgGoods/reserve?name=${name}&packageId=${packageId}&categoryId=${categoryId}&specId=${specId}&quantity=${quantity}&specName=${specName}&unitPrice=${unitPrice}`
 			})
 		},
 		goService() {

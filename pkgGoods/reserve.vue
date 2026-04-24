@@ -3,6 +3,18 @@
 		<view class="card">
 			<view class="title">预约信息</view>
 			<view class="row">
+				<text class="label">服务项目</text>
+				<text class="value">{{ serviceName || '上门服务' }}</text>
+			</view>
+			<view class="row">
+				<text class="label">服务规格</text>
+				<text class="value">{{ selectedSpecName || '默认规格' }}</text>
+			</view>
+			<view class="row">
+				<text class="label">服务人数</text>
+				<text class="value">{{ quantity }}</text>
+			</view>
+			<view class="row">
 				<text class="label">服务地址</text>
 				<view v-if="addressList.length === 0" class="picker-input">
 					<text class="add-address-btn" @click="goAddAddress">暂无地址，点击去添加 ›</text>
@@ -14,10 +26,6 @@
 				</view>
 			</view>
 			<view class="row">
-				<text class="label">服务项目</text>
-				<text class="value">{{ serviceName || '上门服务' }}</text>
-			</view>
-			<view class="row">
 				<text class="label">上门时间</text>
 				<view class="picker-input" @click="openDateTimePopup">
 					<text :class="timeText ? 'value-text' : 'placeholder-text'">
@@ -26,10 +34,14 @@
 				</view>
 			</view>
 			<view class="row">
+				<text class="label">费用小计</text>
+				<text class="price-text">￥{{ totalAmount }}</text>
+			</view>
+			<view class="row">
 				<text class="label">备注</text>
 				<textarea class="remark-input" v-model="remark" placeholder="可填写注意事项（选填）" maxlength="200" />
 			</view>
-			<button class="submit" @click="submitReserve">提交预约</button>
+			<button class="submit" @click="submitReserve">去支付</button>
 		</view>
 
 		<u-popup v-model="showDateTimePopup" mode="bottom" border-radius="18" :closeable="true">
@@ -82,6 +94,7 @@
 
 <script>
 import api from '../utils/http.js'
+import utils from '../utils/utils.js'
 
 export default {
 	data() {
@@ -91,8 +104,13 @@ export default {
 		const timeValue = `${pad(now.getHours())}:${pad(now.getMinutes())}`
 		return {
 			serviceName: '',
-			workerId: 0,
+			packageId: 0,
+			specId: 0,
+			selectedSpecName: '',
+			quantity: 1,
+			unitPrice: 0,
 			categoryId: 1,
+			packageDetail: {},
 			addressList: [],
 			selectedAddress: null,
 			showAddressPopup: false,
@@ -107,12 +125,29 @@ export default {
 		selectedAddressText() {
 			if (!this.selectedAddress) return ''
 			return `${this.selectedAddress.consignee} ${this.selectedAddress.phone} ${this.formatAddress(this.selectedAddress)}`
+		},
+		totalAmount() {
+			return utils.numberFormat(Number(this.unitPrice || 0) * Number(this.quantity || 1))
 		}
 	},
 	onLoad(options) {
 		this.serviceName = decodeURIComponent(options.name || '')
-		this.workerId = Number(options.workerId || 0)
+		this.packageId = Number(options.packageId || 0)
+		this.specId = Number(options.specId || 0)
+		this.selectedSpecName = decodeURIComponent(options.specName || '')
+		this.quantity = Number(options.quantity || 1)
+		this.unitPrice = Number(options.unitPrice || 0)
 		this.categoryId = Number(options.categoryId || 1)
+		this.packageDetail = uni.getStorageSync('package_detail_cache') || {}
+		if (!this.serviceName) {
+			this.serviceName = this.packageDetail.name || ''
+		}
+		if (!this.selectedSpecName) {
+			this.selectedSpecName = this.packageDetail.serviceSpec || ''
+		}
+		if (!this.unitPrice) {
+			this.unitPrice = Number(this.packageDetail.price || 0)
+		}
 		this.fetchAddressList()
 	},
 	methods: {
@@ -225,9 +260,17 @@ export default {
 				return
 			}
 
-			if (!this.workerId) {
+			if (!this.packageId) {
 				uni.showToast({
-					title: '服务人员信息缺失',
+					title: '服务信息缺失',
+					icon: 'none'
+				})
+				return
+			}
+
+			if (!this.specId) {
+				uni.showToast({
+					title: '服务规格缺失，请重新选择',
 					icon: 'none'
 				})
 				return
@@ -241,90 +284,35 @@ export default {
 				return
 			}
 
+			const reserveDateTime = `${this.dateValue} ${this.timeValue}`
 			const payload = {
-				workerId: this.workerId,
+				packageId: this.packageId,
+				specId: this.specId,
+				quantity: this.quantity,
 				categoryId: this.categoryId,
-				addressId: 0, //固定写0
-				startDate: this.dateValue,
-				endDate: this.dateValue,
+				addressId: this.selectedAddress.id,
+				startDate: reserveDateTime,
+				endDate: reserveDateTime,
 				remark: this.remark || ''
 			}
 
-			try {
-				// 第一步：创建订单
-				const res = await api.createRequest({
-					url: '/house/order/create',
-					method: 'post',
-					token
-				}, payload)
-
-				const orderData = res?.data
-				if (!orderData || !orderData.orderNo) {
-					uni.showToast({
-						title: res?.msg || '创建订单失败',
-						icon: 'none'
-					})
-					return
+			const paymentPayload = {
+				orderPayload: payload,
+				goodsInfo: {
+					name: this.serviceName,
+					specName: this.selectedSpecName,
+					quantity: this.quantity,
+					unitPrice: this.unitPrice,
+					totalAmount: this.totalAmount,
+					posterImage: this.packageDetail.posterImage || '',
+					serviceTime: reserveDateTime,
+					addressText: this.selectedAddressText
 				}
-
-				// 第二步：发起支付预下单
-				uni.showLoading({ title: '支付中...' })
-				let prepayRes
-				try {
-					prepayRes = await api.createRequest({
-						url: `/house/pay/prepay/${orderData.orderNo}`,
-						method: 'post',
-						token
-					}, {})
-				} catch (e) {
-					uni.hideLoading()
-					uni.showToast({ title: '获取支付信息失败', icon: 'none' })
-					return
-				}
-
-				const payData = prepayRes?.data
-				if (!payData || !payData.appId) {
-					uni.hideLoading()
-					uni.showToast({
-						title: prepayRes?.msg || '获取支付信息失败',
-						icon: 'none'
-					})
-					return
-				}
-
-				// 第三步：调用微信支付
-				uni.requestPayment({
-					provider: 'wxpay',
-					timeStamp: payData.timeStamp,
-					nonceStr: payData.nonceStr,
-					package: payData.packageVal,
-					signType: payData.signType,
-					paySign: payData.paySign,
-					success: async () => {
-						uni.hideLoading()
-			
-						uni.showToast({ title: '预约成功', icon: 'success' })
-						setTimeout(() => {
-							uni.switchTab({ url: '/pages/mine/mine' })
-						}, 1200)
-					},
-					fail: (err) => {
-						uni.hideLoading()
-						const msg = (err && err.errMsg) || ''
-						if (msg.includes('cancel')) {
-							uni.showToast({ title: '已取消支付', icon: 'none' })
-						} else {
-							uni.showToast({ title: '支付失败，请重试', icon: 'none' })
-						}
-					}
-				})
-			} catch (e) {
-				uni.hideLoading()
-				uni.showToast({
-					title: '操作失败，请稍后重试',
-					icon: 'none'
-				})
 			}
+			uni.setStorageSync('reserve_payment_payload', paymentPayload)
+			uni.navigateTo({
+				url: '/pkgGoods/payment'
+			})
 		}
 	}
 }
@@ -364,6 +352,12 @@ export default {
 .value {
 	font-size: 30rpx;
 	color: #333;
+}
+
+.price-text {
+	font-size: 32rpx;
+	font-weight: 700;
+	color: #f23f3f;
 }
 
 .input {

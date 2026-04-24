@@ -113,6 +113,13 @@
 					}
 				},
 				{
+					"path": "payment",
+					"style": {
+						"navigationBarTitleText": "支付确认",
+						"navigationBarBackgroundColor": "#FFF2D4"
+					}
+				},
+				{
 					"path": "service",
 					"style": {
 						"navigationBarTitleText": "客服",
